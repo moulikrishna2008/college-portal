@@ -60,7 +60,7 @@ loginForm.addEventListener("submit", function(event) {
         setTimeout(function() {
 
             window.location.href =
-                "admin/admin-dashboard.html";
+                "admin-dashboard.html";
 
         }, 700);
 
@@ -83,7 +83,7 @@ loginForm.addEventListener("submit", function(event) {
         setTimeout(function() {
 
             window.location.href =
-                "teacher/teacher-dashboard.html";
+                "teacher-dashboard.html";
 
         }, 700);
 
@@ -106,7 +106,7 @@ loginForm.addEventListener("submit", function(event) {
         setTimeout(function() {
 
             window.location.href =
-                "student/student-dashboard.html";
+                "student-dashboard.html";
 
         }, 700);
 
