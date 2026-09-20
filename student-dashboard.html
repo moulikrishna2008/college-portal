@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | College Portal</title>
+
+    <link rel="stylesheet" href="student-dashboard.css">
+</head>
+
+<body>
+
+<div class="mobile-overlay"
+     id="mobileOverlay"
+     onclick="closeMobileMenu()">
+</div>
+
+<div class="dashboard-wrapper">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-logo">
+                <img src="../college-logo.jpeg"
+                     alt="College Logo">
+            </div>
+
+            <div>
+                <h2>COLLEGE PORTAL</h2>
+                <p>Student Dashboard</p>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item active"
+                    onclick="showSection('dashboard')">
+
+                <span>🏠</span>
+                <span>Dashboard</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('materials')">
+
+                <span>📚</span>
+                <span>Materials</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('attendance')">
+
+                <span>📊</span>
+                <span>Attendance</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('marks')">
+
+                <span>📝</span>
+                <span>Mid Marks</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('profile')">
+
+                <span>👤</span>
+                <span>Profile</span>
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn"
+                    onclick="logout()">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="topbar-small">
+                    WELCOME BACK
+                </span>
+
+                <h1>
+                    Student Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div class="user-avatar">
+                    S
+                </div>
+
+                <div>
+
+                    <strong>
+                        Student
+                    </strong>
+
+                    <small>
+                        Student Portal
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section id="dashboard"
+                 class="content-section active">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        STUDENT PORTAL
+                    </span>
+
+                    <h2>
+                        Dashboard
+                    </h2>
+
+                    <p>
+                        View your academic information and college resources.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Available Materials
+                        </span>
+
+                        <h3 id="totalMaterials">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Attendance
+                        </span>
+
+                        <h3 id="attendancePercentage">
+                            --%
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Mid Marks
+                        </span>
+
+                        <h3 id="marksCount">
+                            --
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Year
+                        </span>
+
+                        <h3 id="studentYear">
+                            --
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel welcome-panel">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC HUB
+                    </span>
+
+                    <h2>
+                        Welcome to Your College Portal
+                    </h2>
+
+                    <p>
+                        Access academic materials, view your attendance,
+                        check your mid marks and manage your profile
+                        from one place.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    🎓
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MATERIALS
+        ================================================== -->
+
+        <section id="materials"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RESOURCES
+                    </span>
+
+                    <h2>
+                        Materials
+                    </h2>
+
+                    <p>
+                        View academic materials uploaded by your college.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="materialSearch"
+                    class="search-input"
+                    placeholder="Search materials..."
+                >
+
+            </div>
+
+
+            <div class="glass-panel">
+
+
+                <div class="filter-row">
+
+                    <select id="branchFilter"
+                            class="filter-select">
+
+                        <option value="">
+                            All Branches
+                        </option>
+
+                        <option value="CSE">
+                            CSE
+                        </option>
+
+                        <option value="ECE">
+                            ECE
+                        </option>
+
+                        <option value="EEE">
+                            EEE
+                        </option>
+
+                        <option value="MECH">
+                            MECH
+                        </option>
+
+                        <option value="CIVIL">
+                            CIVIL
+                        </option>
+
+                        <option value="AIML">
+                            AIML
+                        </option>
+
+                        <option value="DS">
+                            Data Science
+                        </option>
+
+                    </select>
+
+
+                    <select id="yearFilter"
+                            class="filter-select">
+
+                        <option value="">
+                            All Years
+                        </option>
+
+                        <option value="1st Year">
+                            1st Year
+                        </option>
+
+                        <option value="2nd Year">
+                            2nd Year
+                        </option>
+
+                        <option value="3rd Year">
+                            3rd Year
+                        </option>
+
+                        <option value="4th Year">
+                            4th Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Material
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Uploaded By
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="materialTableBody">
+
+                            <tr>
+
+                                <td colspan="6"
+                                    class="empty-row">
+
+                                    No materials available
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATTENDANCE
+        ================================================== -->
+
+        <section id="attendance"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RECORD
+                    </span>
+
+                    <h2>
+                        My Attendance
+                    </h2>
+
+                    <p>
+                        View your attendance record.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel">
+
+
+                <div class="attendance-summary">
+
+                    <div class="attendance-circle">
+
+                        <span id="attendanceValue">
+                            --%
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Attendance Percentage
+                        </h3>
+
+                        <p>
+                            Your attendance information
+                            is displayed here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Conducted
+                                </th>
+
+                                <th>
+                                    Present
+                                </th>
+
+                                <th>
+                                    Absent
+                                </th>
+
+                                <th>
+                                    Percentage
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="attendanceTableBody">
+
+                            <tr>
+
+                                <td colspan="5"
+                                    class="empty-row">
+
+                                    No attendance data available
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MID MARKS
+        ================================================== -->
+
+        <section id="marks"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RECORD
+                    </span>
+
+                    <h2>
+                        My Mid Marks
+                    </h2>
+
+                    <p>
+                        View your internal examination marks.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel">
+
+
+                <div class="marks-summary">
+
+                    <div class="marks-icon">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Mid Examination Results
+                        </h3>
+
+                        <p>
+                            Your marks uploaded by the HOD
+                            are displayed here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Subject
+                                </th>
+
+                                <th>
+                                    Mid 1
+                                </th>
+
+                                <th>
+                                    Mid 2
+                                </th>
+
+                                <th>
+                                    Average
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="marksTableBody">
+
+                            <tr>
+
+                                <td colspan="4"
+                                    class="empty-row">
+
+                                    No mid marks available
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
+        <section id="profile"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACCOUNT
+                    </span>
+
+                    <h2>
+                        My Profile
+                    </h2>
+
+                    <p>
+                        View your registered student details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel profile-card">
+
+                <div class="profile-avatar">
+                    S
+                </div>
+
+
+                <div class="profile-info">
+
+                    <div>
+
+                        <span>
+                            Registration ID
+                        </span>
+
+                        <strong>
+                            23CSE001
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Student Name
+                        </span>
+
+                        <strong>
+                            Demo Student
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Email
+                        </span>
+
+                        <strong>
+                            student@college.edu
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Branch
+                        </span>
+
+                        <strong>
+                            CSE
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Year
+                        </span>
+
+                        <strong>
+                            3rd Year
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Role
+                        </span>
+
+                        <strong>
+                            Student
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script src="student-dashboard.js"></script>
+
+</body>
+
+</html>

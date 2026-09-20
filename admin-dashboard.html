@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HOD Dashboard | College Portal</title>
+
+    <link
+        rel="stylesheet"
+        href="admin-dashboard.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard-wrapper">
+
+
+    <!-- =================================================
+         MOBILE OVERLAY
+    ================================================== -->
+
+    <div
+        class="mobile-overlay"
+        id="mobileOverlay"
+        onclick="closeMobileMenu()"
+    ></div>
+
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+
+        <!-- SIDEBAR HEADER -->
+
+        <div class="sidebar-header">
+
+
+            <div class="sidebar-logo">
+
+                <img
+                    src="../college-logo.jpeg"
+                    alt="College Logo"
+                >
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    COLLEGE PORTAL
+                </h2>
+
+                <p>
+                    HOD Dashboard
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <button
+                class="nav-item active"
+                onclick="showSection('dashboard')"
+            >
+
+                <span>🏠</span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('requests')"
+            >
+
+                <span>📩</span>
+
+                <span>
+                    Student Requests
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('students')"
+            >
+
+                <span>👨‍🎓</span>
+
+                <span>
+                    Students
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('teachers')"
+            >
+
+                <span>👨‍🏫</span>
+
+                <span>
+                    Teachers
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('upload-material')"
+            >
+
+                <span>📤</span>
+
+                <span>
+                    Upload Material
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('materials')"
+            >
+
+                <span>📚</span>
+
+                <span>
+                    All Materials
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('attendance')"
+            >
+
+                <span>📊</span>
+
+                <span>
+                    Attendance
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('marks')"
+            >
+
+                <span>📝</span>
+
+                <span>
+                    Mid Marks
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-item"
+                onclick="showSection('profile')"
+            >
+
+                <span>👤</span>
+
+                <span>
+                    Profile
+                </span>
+
+            </button>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <!-- MOBILE MENU -->
+
+            <button
+                type="button"
+                class="mobile-menu-btn"
+                onclick="toggleMobileMenu()"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span class="topbar-small">
+                    WELCOME BACK
+                </span>
+
+                <h1>
+                    HOD Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div class="user-avatar">
+                    H
+                </div>
+
+                <div>
+
+                    <strong>
+                        HOD
+                    </strong>
+
+                    <small>
+                        Administrator
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section
+            id="dashboard"
+            class="content-section active"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ADMINISTRATION
+                    </span>
+
+                    <h2>
+                        Dashboard
+                    </h2>
+
+                    <p>
+                        Manage students, teachers,
+                        materials and academic records.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STATS -->
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Students
+                        </span>
+
+                        <h3>
+                            120
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🏫
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Teachers
+                        </span>
+
+                        <h3>
+                            18
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Materials
+                        </span>
+
+                        <h3>
+                            64
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📩
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Requests
+                        </span>
+
+                        <h3>
+                            5
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- WELCOME -->
+
+            <div class="glass-panel welcome-panel">
+
+                <div>
+
+                    <span class="section-label">
+                        COLLEGE ADMINISTRATION
+                    </span>
+
+                    <h2>
+                        Welcome to HOD Portal
+                    </h2>
+
+                    <p>
+                        Manage student registrations,
+                        teacher accounts, academic materials,
+                        attendance and mid marks from one
+                        centralized dashboard.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    🎓
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STUDENT REQUESTS
+        ================================================== -->
+
+        <section
+            id="requests"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        STUDENT MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Student Requests
+                    </h2>
+
+                    <p>
+                        Approve or reject student registrations.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="requestSearch"
+                    class="search-input"
+                    placeholder="Search requests..."
+                >
+
+            </div>
+
+
+
+            <div class="glass-panel">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Registration ID
+                                </th>
+
+                                <th>
+                                    Student Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="requestTableBody">
+
+                            <tr>
+
+                                <td>
+                                    23CSE002
+                                </td>
+
+                                <td>
+                                    Demo Student 2
+                                </td>
+
+                                <td>
+                                    student2@college.edu
+                                </td>
+
+                                <td>
+                                    CSE
+                                </td>
+
+                                <td>
+                                    3rd Year
+                                </td>
+
+                                <td>
+                                    <span class="status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="approve-btn"
+                                        onclick="approveRequest(this)"
+                                    >
+                                        Approve
+                                    </button>
+
+                                    <button
+                                        class="reject-btn"
+                                        onclick="rejectRequest(this)"
+                                    >
+                                        Reject
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    23ECE003
+                                </td>
+
+                                <td>
+                                    Demo Student 3
+                                </td>
+
+                                <td>
+                                    student3@college.edu
+                                </td>
+
+                                <td>
+                                    ECE
+                                </td>
+
+                                <td>
+                                    2nd Year
+                                </td>
+
+                                <td>
+                                    <span class="status pending">
+                                        Pending
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="approve-btn"
+                                        onclick="approveRequest(this)"
+                                    >
+                                        Approve
+                                    </button>
+
+                                    <button
+                                        class="reject-btn"
+                                        onclick="rejectRequest(this)"
+                                    >
+                                        Reject
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             STUDENTS
+        ================================================== -->
+
+        <section
+            id="students"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        STUDENT MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Students
+                    </h2>
+
+                    <p>
+                        View and manage student accounts.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="studentSearch"
+                    class="search-input"
+                    placeholder="Search students..."
+                >
+
+            </div>
+
+
+
+            <div class="glass-panel">
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Registration ID
+                                </th>
+
+                                <th>
+                                    Student Name
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="studentTableBody">
+
+                            <tr>
+
+                                <td>
+                                    23CSE001
+                                </td>
+
+                                <td>
+                                    Demo Student
+                                </td>
+
+                                <td>
+                                    CSE
+                                </td>
+
+                                <td>
+                                    3rd Year
+                                </td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewStudent(this)"
+                                    >
+                                        View
+                                    </button>
+
+                                    <button
+                                        class="edit-btn"
+                                        onclick="editStudent(this)"
+                                    >
+                                        Edit
+                                    </button>
+
+                                    <button
+                                        class="reset-btn"
+                                        onclick="resetStudentPassword(this)"
+                                    >
+                                        Reset Password
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             TEACHERS
+        ================================================== -->
+
+        <section
+            id="teachers"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        TEACHER MANAGEMENT
+                    </span>
+
+                    <h2>
+                        Teachers
+                    </h2>
+
+                    <p>
+                        Create and manage teacher accounts.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CREATE TEACHER -->
+
+            <div class="glass-panel">
+
+                <h3>
+                    Create Teacher Account
+                </h3>
+
+
+                <form id="teacherForm">
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Teacher ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="teacherId"
+                                placeholder="Enter Teacher ID"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Teacher Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="teacherName"
+                                placeholder="Enter Teacher Name"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Branch
+                            </label>
+
+                            <select
+                                id="teacherBranch"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Branch
+                                </option>
+
+                                <option value="CSE">
+                                    CSE
+                                </option>
+
+                                <option value="ECE">
+                                    ECE
+                                </option>
+
+                                <option value="EEE">
+                                    EEE
+                                </option>
+
+                                <option value="MECH">
+                                    MECH
+                                </option>
+
+                                <option value="CIVIL">
+                                    CIVIL
+                                </option>
+
+                                <option value="AIML">
+                                    AIML
+                                </option>
+
+                                <option value="DS">
+                                    Data Science
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Qualification
+                            </label>
+
+                            <input
+                                type="text"
+                                id="teacherQualification"
+                                placeholder="Example: M.Tech"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="teacherPassword"
+                                placeholder="Enter Password"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Confirm Password
+                            </label>
+
+                            <input
+                                type="password"
+                                id="teacherConfirmPassword"
+                                placeholder="Confirm Password"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            onclick="clearTeacherForm()"
+                        >
+                            Clear
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Create Teacher
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="teacherMessage"
+                        class="form-message"
+                    ></p>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- TEACHER TABLE -->
+
+            <div class="glass-panel">
+
+                <h3>
+                    Teacher Accounts
+                </h3>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Teacher ID
+                                </th>
+
+                                <th>
+                                    Teacher Name
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Qualification
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="teacherTableBody">
+
+                            <tr>
+
+                                <td>
+                                    TCH001
+                                </td>
+
+                                <td>
+                                    Demo Teacher
+                                </td>
+
+                                <td>
+                                    CSE
+                                </td>
+
+                                <td>
+                                    M.Tech
+                                </td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewTeacher(this)"
+                                    >
+                                        View
+                                    </button>
+
+                                    <button
+                                        class="edit-btn"
+                                        onclick="editTeacher(this)"
+                                    >
+                                        Edit
+                                    </button>
+
+                                    <button
+                                        class="reset-btn"
+                                        onclick="resetTeacherPassword(this)"
+                                    >
+                                        Reset Password
+                                    </button>
+
+                                    <button
+                                        class="delete-btn"
+                                        onclick="deleteTeacher(this)"
+                                    >
+                                        Delete
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             UPLOAD MATERIAL
+        ================================================== -->
+
+        <section
+            id="upload-material"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RESOURCES
+                    </span>
+
+                    <h2>
+                        Upload Material
+                    </h2>
+
+                    <p>
+                        Upload academic material for students.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="glass-panel">
+
+
+                <form id="materialForm">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Material Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="materialTitle"
+                            placeholder="Enter material title"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-row">
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Branch
+                            </label>
+
+                            <select
+                                id="materialBranch"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Branch
+                                </option>
+
+                                <option value="CSE">
+                                    CSE
+                                </option>
+
+                                <option value="ECE">
+                                    ECE
+                                </option>
+
+                                <option value="EEE">
+                                    EEE
+                                </option>
+
+                                <option value="MECH">
+                                    MECH
+                                </option>
+
+                                <option value="CIVIL">
+                                    CIVIL
+                                </option>
+
+                                <option value="AIML">
+                                    AIML
+                                </option>
+
+                                <option value="DS">
+                                    Data Science
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Year
+                            </label>
+
+                            <select
+                                id="materialYear"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Year
+                                </option>
+
+                                <option value="1st Year">
+                                    1st Year
+                                </option>
+
+                                <option value="2nd Year">
+                                    2nd Year
+                                </option>
+
+                                <option value="3rd Year">
+                                    3rd Year
+                                </option>
+
+                                <option value="4th Year">
+                                    4th Year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Material Type
+                        </label>
+
+                        <select
+                            id="materialType"
+                            required
+                        >
+
+                            <option value="">
+                                Select Material Type
+                            </option>
+
+                            <option value="Notes">
+                                Notes
+                            </option>
+
+                            <option value="Question Paper">
+                                Question Paper
+                            </option>
+
+                            <option value="Assignment">
+                                Assignment
+                            </option>
+
+                            <option value="PPT">
+                                PPT
+                            </option>
+
+                            <option value="Lab Material">
+                                Lab Material
+                            </option>
+
+                            <option value="Reference">
+                                Reference
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- MATERIAL DROP -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Material File
+                        </label>
+
+
+                        <div
+                            id="materialDropArea"
+                            class="material-drop-area"
+                        >
+
+                            <div class="upload-icon">
+                                📂
+                            </div>
+
+                            <h3>
+                                Drag &amp; Drop your file here
+                            </h3>
+
+                            <p>
+                                or click to browse
+                            </p>
+
+                            <span>
+                                PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX
+                            </span>
+
+
+                            <input
+                                type="file"
+                                id="materialFile"
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <p
+                            id="materialFileName"
+                            class="selected-file"
+                        ></p>
+
+                    </div>
+
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            onclick="clearMaterialForm()"
+                        >
+                            Clear
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Upload Material
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="materialMessage"
+                        class="form-message"
+                    ></p>
+
+
+                </form>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ALL MATERIALS
+        ================================================== -->
+
+        <section
+            id="materials"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RESOURCES
+                    </span>
+
+                    <h2>
+                        All Materials
+                    </h2>
+
+                    <p>
+                        View all academic materials.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="materialSearch"
+                    class="search-input"
+                    placeholder="Search materials..."
+                >
+
+            </div>
+
+
+
+            <div class="glass-panel">
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Material
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Uploaded By
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="materialTableBody">
+
+                            <tr>
+
+                                <td>
+                                    DBMS Unit 1 Notes
+                                </td>
+
+                                <td>
+                                    CSE
+                                </td>
+
+                                <td>
+                                    3rd Year
+                                </td>
+
+                                <td>
+                                    Notes
+                                </td>
+
+                                <td>
+                                    Demo Teacher
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewMaterial(this)"
+                                    >
+                                        View
+                                    </button>
+
+                                    <button
+                                        class="delete-btn"
+                                        onclick="deleteMaterial(this)"
+                                    >
+                                        Delete
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Digital Electronics
+                                </td>
+
+                                <td>
+                                    ECE
+                                </td>
+
+                                <td>
+                                    2nd Year
+                                </td>
+
+                                <td>
+                                    Notes
+                                </td>
+
+                                <td>
+                                    Another Teacher
+                                </td>
+
+                                <td>
+
+                                    <button
+                                        class="view-btn"
+                                        onclick="viewMaterial(this)"
+                                    >
+                                        View
+                                    </button>
+
+                                    <button
+                                        class="delete-btn"
+                                        onclick="deleteMaterial(this)"
+                                    >
+                                        Delete
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATTENDANCE
+        ================================================== -->
+
+        <section
+            id="attendance"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RECORDS
+                    </span>
+
+                    <h2>
+                        Attendance
+                    </h2>
+
+                    <p>
+                        Upload attendance Excel file.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="glass-panel">
+
+
+                <div
+                    id="attendanceDropArea"
+                    class="upload-drop-area"
+                >
+
+                    <div class="upload-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Drag &amp; Drop Attendance Excel
+                    </h3>
+
+                    <p>
+                        or click to select Excel file
+                    </p>
+
+                    <span>
+                        .xlsx or .xls
+                    </span>
+
+
+                    <input
+                        type="file"
+                        id="attendanceFile"
+                        accept=".xlsx,.xls"
+                        hidden
+                    >
+
+                </div>
+
+
+                <p
+                    id="attendanceFileName"
+                    class="selected-file"
+                ></p>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="clearAttendance()"
+                    >
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="uploadAttendance()"
+                    >
+                        Upload Attendance
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="attendanceMessage"
+                    class="form-message"
+                ></p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             MID MARKS
+        ================================================== -->
+
+        <section
+            id="marks"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RECORDS
+                    </span>
+
+                    <h2>
+                        Mid Marks
+                    </h2>
+
+                    <p>
+                        Upload mid marks Excel file.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="glass-panel">
+
+
+                <div
+                    id="marksDropArea"
+                    class="upload-drop-area"
+                >
+
+                    <div class="upload-icon">
+                        📝
+                    </div>
+
+                    <h3>
+                        Drag &amp; Drop Mid Marks Excel
+                    </h3>
+
+                    <p>
+                        or click to select Excel file
+                    </p>
+
+                    <span>
+                        .xlsx or .xls
+                    </span>
+
+
+                    <input
+                        type="file"
+                        id="marksFile"
+                        accept=".xlsx,.xls"
+                        hidden
+                    >
+
+                </div>
+
+
+                <p
+                    id="marksFileName"
+                    class="selected-file"
+                ></p>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="cancel-btn"
+                        onclick="clearMarks()"
+                    >
+                        Clear
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        onclick="uploadMarks()"
+                    >
+                        Upload Mid Marks
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="marksMessage"
+                    class="form-message"
+                ></p>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROFILE
+        ================================================== -->
+
+        <section
+            id="profile"
+            class="content-section"
+        >
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACCOUNT
+                    </span>
+
+                    <h2>
+                        Profile
+                    </h2>
+
+                    <p>
+                        View HOD account details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="glass-panel profile-card">
+
+
+                <div class="profile-avatar">
+                    H
+                </div>
+
+
+                <div class="profile-info">
+
+
+                    <div>
+
+                        <span>
+                            User ID
+                        </span>
+
+                        <strong>
+                            HOD001
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Name
+                        </span>
+
+                        <strong>
+                            Head of Department
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Role
+                        </span>
+
+                        <strong>
+                            HOD / Administrator
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Account Status
+                        </span>
+
+                        <strong class="status-active">
+                            Active
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+<script src="admin-dashboard.js"></script>
+
+</body>
+
+</html>

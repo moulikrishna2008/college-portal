@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Teacher Dashboard | College Portal</title>
+
+    <link rel="stylesheet" href="teacher-dashboard.css">
+</head>
+
+<body>
+
+<div class="mobile-overlay"
+     id="mobileOverlay"
+     onclick="closeMobileMenu()">
+</div>
+
+<div class="dashboard-wrapper">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar"
+           id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="sidebar-logo">
+                <img src="../college-logo.jpeg"
+                     alt="College Logo">
+            </div>
+
+            <div>
+                <h2>COLLEGE PORTAL</h2>
+                <p>Teacher Dashboard</p>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item active"
+                    onclick="showSection('dashboard')">
+
+                <span>🏠</span>
+                <span>Dashboard</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('upload-material')">
+
+                <span>📤</span>
+                <span>Upload Material</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('all-materials')">
+
+                <span>📚</span>
+                <span>All Materials</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('my-materials')">
+
+                <span>📁</span>
+                <span>My Materials</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showSection('profile')">
+
+                <span>👤</span>
+                <span>Profile</span>
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button class="logout-btn"
+                    onclick="logout()">
+
+                🚪 Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            type="button"
+            class="mobile-menu-btn"
+            onclick="toggleMobileMenu()"
+            aria-label="Open menu"
+        >
+            ☰
+        </button>
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <span class="topbar-small">
+                    WELCOME BACK
+                </span>
+
+                <h1>
+                    Teacher Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-user">
+
+                <div class="user-avatar">
+                    T
+                </div>
+
+                <div>
+
+                    <strong>
+                        Teacher
+                    </strong>
+
+                    <small>
+                        Teacher Portal
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             DASHBOARD
+        ====================================================== -->
+
+        <section id="dashboard"
+                 class="content-section active">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        TEACHER PORTAL
+                    </span>
+
+                    <h2>
+                        Dashboard
+                    </h2>
+
+                    <p>
+                        Upload and access academic materials.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📤
+                    </div>
+
+                    <div>
+
+                        <span>
+                            My Uploads
+                        </span>
+
+                        <h3 id="myUploadCount">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <span>
+                            All Materials
+                        </span>
+
+                        <h3 id="allMaterialCount">
+                            0
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👨‍🏫
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Teacher ID
+                        </span>
+
+                        <h3>
+                            TCH001
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        🎓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Branch
+                        </span>
+
+                        <h3>
+                            CSE
+                        </h3>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel welcome-panel">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC MATERIALS
+                    </span>
+
+                    <h2>
+                        Welcome to Teacher Portal
+                    </h2>
+
+                    <p>
+                        Upload academic materials for any branch and year.
+                        You can also view materials uploaded by other teachers.
+                        You can delete only the materials uploaded by you.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-icon">
+                    👨‍🏫
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             UPLOAD MATERIAL
+        ====================================================== -->
+
+        <section id="upload-material"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RESOURCES
+                    </span>
+
+                    <h2>
+                        Upload Material
+                    </h2>
+
+                    <p>
+                        Upload materials for any branch and any year.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel">
+
+                <form id="materialForm">
+
+
+                    <!-- MATERIAL TITLE -->
+
+                    <div class="form-group">
+
+                        <label for="materialTitle">
+                            Material Title
+                        </label>
+
+                        <input
+                            type="text"
+                            id="materialTitle"
+                            placeholder="Enter material title"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <!-- BRANCH -->
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="materialBranch">
+                                Branch
+                            </label>
+
+                            <select
+                                id="materialBranch"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Branch
+                                </option>
+
+                                <option value="CSE">
+                                    CSE
+                                </option>
+
+                                <option value="ECE">
+                                    ECE
+                                </option>
+
+                                <option value="EEE">
+                                    EEE
+                                </option>
+
+                                <option value="MECH">
+                                    MECH
+                                </option>
+
+                                <option value="CIVIL">
+                                    CIVIL
+                                </option>
+
+                                <option value="AIML">
+                                    AIML
+                                </option>
+
+                                <option value="DS">
+                                    Data Science
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- YEAR -->
+
+                        <div class="form-group">
+
+                            <label for="materialYear">
+                                Year
+                            </label>
+
+                            <select
+                                id="materialYear"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Year
+                                </option>
+
+                                <option value="1st Year">
+                                    1st Year
+                                </option>
+
+                                <option value="2nd Year">
+                                    2nd Year
+                                </option>
+
+                                <option value="3rd Year">
+                                    3rd Year
+                                </option>
+
+                                <option value="4th Year">
+                                    4th Year
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- MATERIAL TYPE -->
+
+                    <div class="form-group">
+
+                        <label for="materialType">
+                            Material Type
+                        </label>
+
+                        <select
+                            id="materialType"
+                            required
+                        >
+
+                            <option value="">
+                                Select Material Type
+                            </option>
+
+                            <option value="Notes">
+                                Notes
+                            </option>
+
+                            <option value="Question Paper">
+                                Question Paper
+                            </option>
+
+                            <option value="Assignment">
+                                Assignment
+                            </option>
+
+                            <option value="PPT">
+                                PPT
+                            </option>
+
+                            <option value="Lab Material">
+                                Lab Material
+                            </option>
+
+                            <option value="Reference">
+                                Reference
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- DRAG DROP -->
+
+                    <div class="form-group">
+
+                        <label>
+                            Material File
+                        </label>
+
+
+                        <div
+                            id="materialDropArea"
+                            class="material-drop-area"
+                        >
+
+                            <div class="upload-icon">
+                                📂
+                            </div>
+
+                            <h3>
+                                Drag & Drop your file here
+                            </h3>
+
+                            <p>
+                                or click to browse
+                            </p>
+
+                            <span>
+                                PDF, DOC, DOCX, PPT, PPTX, XLS, XLSX
+                            </span>
+
+
+                            <input
+                                type="file"
+                                id="materialFile"
+                                accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
+                                hidden
+                            >
+
+                        </div>
+
+
+                        <p
+                            id="materialFileName"
+                            class="selected-file"
+                        ></p>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            onclick="clearMaterialForm()"
+                        >
+                            Clear
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="primary-btn"
+                        >
+                            Upload Material
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="materialMessage"
+                        class="form-message"
+                    ></p>
+
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ALL MATERIALS
+        ====================================================== -->
+
+        <section id="all-materials"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACADEMIC RESOURCES
+                    </span>
+
+                    <h2>
+                        All Materials
+                    </h2>
+
+                    <p>
+                        View materials uploaded by all teachers.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="allMaterialSearch"
+                    class="search-input"
+                    placeholder="Search materials..."
+                >
+
+            </div>
+
+
+            <div class="glass-panel">
+
+
+                <div class="filter-row">
+
+                    <select
+                        id="allBranchFilter"
+                        class="filter-select"
+                    >
+
+                        <option value="">
+                            All Branches
+                        </option>
+
+                        <option value="CSE">
+                            CSE
+                        </option>
+
+                        <option value="ECE">
+                            ECE
+                        </option>
+
+                        <option value="EEE">
+                            EEE
+                        </option>
+
+                        <option value="MECH">
+                            MECH
+                        </option>
+
+                        <option value="CIVIL">
+                            CIVIL
+                        </option>
+
+                        <option value="AIML">
+                            AIML
+                        </option>
+
+                        <option value="DS">
+                            Data Science
+                        </option>
+
+                    </select>
+
+
+                    <select
+                        id="allYearFilter"
+                        class="filter-select"
+                    >
+
+                        <option value="">
+                            All Years
+                        </option>
+
+                        <option value="1st Year">
+                            1st Year
+                        </option>
+
+                        <option value="2nd Year">
+                            2nd Year
+                        </option>
+
+                        <option value="3rd Year">
+                            3rd Year
+                        </option>
+
+                        <option value="4th Year">
+                            4th Year
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Material
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Uploaded By
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="allMaterialsBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MY MATERIALS
+        ====================================================== -->
+
+        <section id="my-materials"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        MY UPLOADS
+                    </span>
+
+                    <h2>
+                        My Materials
+                    </h2>
+
+                    <p>
+                        Manage only the materials uploaded by you.
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="myMaterialSearch"
+                    class="search-input"
+                    placeholder="Search my materials..."
+                >
+
+            </div>
+
+
+            <div class="glass-panel">
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Material
+                                </th>
+
+                                <th>
+                                    Branch
+                                </th>
+
+                                <th>
+                                    Year
+                                </th>
+
+                                <th>
+                                    Type
+                                </th>
+
+                                <th>
+                                    Uploaded By
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="myMaterialsBody">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROFILE
+        ====================================================== -->
+
+        <section id="profile"
+                 class="content-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        ACCOUNT
+                    </span>
+
+                    <h2>
+                        My Profile
+                    </h2>
+
+                    <p>
+                        View your teacher account details.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="glass-panel profile-card">
+
+                <div class="profile-avatar">
+                    T
+                </div>
+
+
+                <div class="profile-info">
+
+
+                    <div>
+
+                        <span>
+                            Teacher ID
+                        </span>
+
+                        <strong>
+                            TCH001
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Teacher Name
+                        </span>
+
+                        <strong>
+                            Demo Teacher
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Branch
+                        </span>
+
+                        <strong>
+                            CSE
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Qualification
+                        </span>
+
+                        <strong>
+                            M.Tech
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Role
+                        </span>
+
+                        <strong>
+                            Teacher
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Account Status
+                        </span>
+
+                        <strong class="status-active">
+                            Active
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<script src="teacher-dashboard.js"></script>
+
+</body>
+
+</html>
